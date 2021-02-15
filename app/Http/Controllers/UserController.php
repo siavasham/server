@@ -5,6 +5,7 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Tymon\JWTAuth\Facades\JWTFactory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\Controller; 
 use App\Models\User; 
 use App\Models\TempUser; 
@@ -37,8 +38,13 @@ class UserController extends Controller
         }
 
         TempUser::where('email',$credentials['email'])->delete();
-        $insert = TempUser::updateOrCreate($credentials);
-       
+        $user = TempUser::updateOrCreate($credentials);
+
+        app()->setlocale('fa');
+        Mail::send('email.verify', ['code' => $user->code], function ($m) use ($user) {
+            $m->to($user->email, $user->name)->subject(__('emailVerification'));
+        });
+
         return response()->json(['success' =>true]); 
     }
     public function Login(Request $request){
