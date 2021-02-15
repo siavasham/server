@@ -71,7 +71,7 @@ class Coinremitter {
      */
     public function get_new_address($param=[]){
         $url = $this->url.$this->version.'/'.$this->coin.'/get-new-address';
-        $this->param = array_merge($this->param,$param);
+        $this->param = array_merge($this->param??[],$param??[]);
         $res = $this->curl_call($url, $this->param);
         return $res;
     }

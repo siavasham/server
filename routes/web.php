@@ -27,4 +27,5 @@ $router->post('activate','UserController@Active');
 
 $router->group(['middleware' => 'jwt'], function () use ($router) {
     $router->post('me', 'UserController@Me');
+    $router->post('address', 'WalletController@Address');
 });
