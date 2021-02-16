@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-// use Coinremitter\Coinremitter;
 
 class HomeController extends Controller
 {
@@ -13,11 +12,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        // $btc_wallet = new Coinremitter('BTC');
-        // $param = [
-        //     'label'=>'ok'
-        // ];
-        // $address = $btc_wallet->get_new_address($param);
+
     }
 
     public function index(Request $request)

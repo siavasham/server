@@ -1,7 +1,7 @@
 <footer class="with-pattern-1 position-relative">
     <div class="container section-padding-y">
     <div class="row">
-        <div class="col-lg-3 mb-4 mb-lg-0"><img class="mb-4" src="img/logo.svg" alt="" width="110">
+        <div class="col-lg-3 mb-4 mb-lg-0"><img class="mb-4" src="img/logo.png" alt="" width="110">
         <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
         </div>
         <div class="col-lg-2 mb-4 mb-lg-0">

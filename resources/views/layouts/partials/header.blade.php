@@ -1,6 +1,7 @@
 <header class="header">
     <nav class="navbar navbar-expand-lg fixed-top">
-    <div class="container"><a class="navbar-brand" href="#"><img src="img/logo.svg" alt="" width="110"></a>
+    <div class="container">
+        <a class="navbar-brand" href="#"><img src="img/logo.png" alt="" width="110"></a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">

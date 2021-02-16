@@ -99,11 +99,11 @@ $app->routeMiddleware([
 // $app->register(Illuminate\Database\Eloquent\LegacyFactoryServiceProvider::class);
 // $app->register(App\Providers\AppServiceProvider::class);
 $app->register(App\Providers\AuthServiceProvider::class);
+$app->register(App\Providers\CoinremiterServiceProvider::class);
 $app->register(Tymon\JWTAuth\Providers\LumenServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
 
 $app->register(\Illuminate\Mail\MailServiceProvider::class);
-// $app->register(\Coinremitter\CoinremiterServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------

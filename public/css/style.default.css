@@ -1323,6 +1323,11 @@ STYLE SWITCHER FOR DEMO
     padding-bottom: 0.3125rem;
     margin-right: 1rem;
     font-size: 1.25rem;
+    width: 15vw;
+    min-width: 150px;
+}
+.navbar-brand img {
+    width: 100%;
 }
 
 .navbar-toggler {
@@ -2081,7 +2086,7 @@ STYLE SWITCHER FOR DEMO
 
 .btn-lg {
     padding: 0.5rem 1rem;
-    font-size: 1.25rem;
+    font-size: 1rem;
     line-height: 1.5;
     border-radius: 0.35rem;
 }
@@ -2098,7 +2103,7 @@ STYLE SWITCHER FOR DEMO
  */
 body {
     font-family: "Montserrat", sans-serif;
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 400;
     line-height: 1.5;
     color: #17141f;
