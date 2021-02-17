@@ -96,7 +96,7 @@ class UserController extends Controller
             return  $this->makeLogin($user,$request);
              
         }
-        return response()->json(['error' => 'invalid email']); 
+        return response()->json(['error' => 'validation.email']); 
     }
     public function Me(Request $request){
         
