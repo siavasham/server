@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Plans; 
+use App\Models\Plan; 
 
 class PlansSeeder extends Seeder
 {
@@ -14,8 +14,14 @@ class PlansSeeder extends Seeder
      */
     public function run()
     {
-        Plans::truncate();
+        Plan::truncate();
 
-        Plans::create(['type'=>'daily','profit'=>.5,'invest' => .001]);
+        Plan::insert([
+            ['type'=>'daily','profit'=>.3,'invest' => .001],
+            ['type'=>'weekly','profit'=>2.5,'invest' => .005],
+            ['type'=>'monthly','profit'=>12,'invest' => .01],
+            ['type'=>'semiAnnualy','profit'=>90,'invest' => .02],
+            ['type'=>'annualy','profit'=>200,'invest' => .05],
+        ]);
     }
 }

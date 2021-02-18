@@ -28,6 +28,8 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->post('register','UserController@Register');
     $router->post('login','UserController@Login');
     $router->post('activate','UserController@Active');
+    
     $router->get('plans','PlansController@plans');
+    $router->get('coins','CoinsController@coins');
 });
 
