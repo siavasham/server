@@ -18,7 +18,8 @@ class CreateTempUserTable extends Migration
              $table->string('name',25);
             $table->string('email',100);
             $table->string('password',100);
-            $table->integer('ref_id')->default(0);
+            $table->string('lang', 2)->default('fa');
+            $table->string('referral',25)->default('');
             $table->string('code', 6);
             $table->tinyInteger('try');
             $table->boolean('verified')->default(false);

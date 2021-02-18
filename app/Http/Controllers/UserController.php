@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User; 
 use App\Models\TempUser; 
 use App\Models\Login; 
+use App\Models\Referral; 
 use Validator;
 
 class UserController extends Controller
@@ -25,7 +26,7 @@ class UserController extends Controller
         if ($validator->fails()) { 
             return response()->json(['error'=>$validator->errors()], 401);            
         }
-        $credentials = $request->only('name','email','password');
+        $credentials = $request->only('name','email','password','referral');
         $res = [];
         foreach(['email','name'] as $search){
             $temp = User::where($search, $credentials[$search])->count();
@@ -36,7 +37,6 @@ class UserController extends Controller
         if(count($res)){
             return response()->json(['error' =>$res]); 
         }
-
         TempUser::where('email',$credentials['email'])->delete();
         $user = TempUser::updateOrCreate($credentials);
 
@@ -87,12 +87,11 @@ class UserController extends Controller
                 $token->save();
                  return response()->json(['error' => 'invalid-code']); 
             }
-            $token->verified = true;
-            $token->save();
+            $token->delete();
             
-            $credentials = ['name'=>$token->name,'email'=>$token->email,'password'=>$token->password];
+            $credentials = ['name'=>$token->name,'email'=>$token->email,'password'=>$token->password,'lang'=>$token->lang];
             $user = User::updateOrCreate($credentials);   
-                
+            $this->checkReferral($token);
             return  $this->makeLogin($user,$request);
              
         }
@@ -105,7 +104,7 @@ class UserController extends Controller
 
     function makeLogin($user,$request){
         $credentials = ['user_id'=>$user->id,'ip'=> $request->ip()];
-        $insert = Login::create($credentials);
+        Login::create($credentials);
         $user_data = ['id'=>$user->id];
         $token = $this->generateToken($user_data);
         return response()->json(['success' =>['token'=>$token,'name'=>$user->name]]);
@@ -118,5 +117,14 @@ class UserController extends Controller
         ]);
         $payload = $factory->make();
         return JWTAuth::encode($payload)->get();
+    }
+    function checkReferral($ref){
+        if($ref->referral != ''){
+            $user = User::where('name',$ref->referral) ->first();
+            if($user){
+                $credentials = ['user_id'=>$user->id,'referral'=>$ref->id];
+                Referral::updateOrCreate($credentials);   
+            }
+        }
     }
 }

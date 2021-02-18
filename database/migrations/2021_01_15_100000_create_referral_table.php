@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCoinsTable extends Migration
+class CreateReferralTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateCoinsTable extends Migration
      */
     public function up()
     {
-        Schema::create('coins', function (Blueprint $table) {
+        Schema::create('referral', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name',5);
-            $table->string('fullname',15);
-            $table->integer('price')->default(0);
-            $table->boolean('status')->default(true);
+            $table->integer('user_id');
+            $table->integer('referral');
+            $table->float('profit')->default(0);
+            $table->boolean('invested')->default(false);
+            $table->timestamps();
         });
     }
 
@@ -29,6 +30,6 @@ class CreateCoinsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('coins');
+        Schema::dropIfExists('referral');
     }
 }

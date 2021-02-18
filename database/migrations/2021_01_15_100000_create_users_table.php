@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('name',25)->unique();
             $table->string('email',100)->unique();
             $table->string('password',100);
-            $table->integer('ref_id')->default(0);
+            $table->enum('lang', ['fa', 'en','ar','tr'])->default('fa');
             $table->boolean('status')->default(true);
             $table->timestamps();
         });

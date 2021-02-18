@@ -10,7 +10,7 @@ class TempUser extends Model
     public $timestamps = false;
     protected $table = 'temp_users';
     protected $fillable = [
-        'name','email','password','ref_id','code','try','time'
+        'name','email','password','lang','referral','code','try','time'
     ];
 
     public function __construct(array $attributes = [])
