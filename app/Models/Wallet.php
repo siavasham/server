@@ -5,7 +5,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Wallet extends Model 
 {
-    public $timestamps = false;
     protected $table = 'wallet';
     /**
      * The attributes that are mass assignable.
@@ -13,7 +12,7 @@ class Wallet extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id','coin','address','added_on'
+        'user_id','coin','address',
     ];
 
     /**

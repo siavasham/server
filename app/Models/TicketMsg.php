@@ -2,17 +2,18 @@
 
 namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
-use DB;
-class Referral extends Model 
+
+class TicketMsg extends Model 
 {
-    protected $table = 'referral';
+    public $timestamps = false;
+    protected $table = 'ticket_msg';
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'user_id','referral'
+        'user_id','ticket_id','text',
     ];
 
     /**
@@ -26,9 +27,4 @@ class Referral extends Model
     {
         parent::__construct($attributes);
     }
-     public function user()
-    {
-        return $this->belongsTo(User::class,'referral','id');
-    }
-
 }

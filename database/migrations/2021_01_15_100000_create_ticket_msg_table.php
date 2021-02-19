@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCoinsTable extends Migration
+class CreateTicketMsgTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateCoinsTable extends Migration
      */
     public function up()
     {
-        Schema::create('coins', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name',10);
-            $table->string('fullname',15);
-            $table->integer('price')->default(0);
-            $table->boolean('status')->default(true);
+        Schema::create('ticket_msg', function (Blueprint $table) {
+            $table->tinyIncrements('id');
+            $table->integer('user_id');
+            $table->integer('ticket_id');
+            $table->text('text');
+            $table->timestamp('added_on');
+
         });
     }
 
@@ -29,6 +30,6 @@ class CreateCoinsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('coins');
+        Schema::dropIfExists('ticket_msg');
     }
 }

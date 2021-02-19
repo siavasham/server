@@ -98,7 +98,6 @@ class UserController extends Controller
         return response()->json(['error' => 'validation.email']); 
     }
     public function Me(Request $request){
-        
         return response()->json(['success' => $request->user]); 
     }
 

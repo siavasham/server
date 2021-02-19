@@ -16,7 +16,7 @@ class CreateLoginTable extends Migration
         Schema::create('login', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('user_id');
-            $table->string('ip',15);
+            $table->ipAddress('ip');
             $table->timestamp('added_on');
         });
     }
