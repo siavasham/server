@@ -17,7 +17,7 @@ class CreateTicketTable extends Migration
             $table->bigIncrements('id');
             $table->integer('user_id');
             $table->string('title',255);
-            $table->enum('status', ['open', 'done','on-hold'])->default('open');
+            $table->enum('status', ['open', 'done','on-hold','progress','rejected'])->default('open');
             $table->tinyInteger('progress')->default(0);
             $table->timestamps();
         });
