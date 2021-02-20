@@ -13,7 +13,7 @@ class TicketController extends Controller
     public $successStatus = 200;
 
     public function tickets(Request $request){
-        $tickets = Ticket::where('user_id', $request->user->id)->get();
+        $tickets = Ticket::where('user_id', $request->user->id)->reorder('id', 'desc')->get();
         return response()->json(['success' =>$tickets]); 
     }
     public function newTicket(Request $request){

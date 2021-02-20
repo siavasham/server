@@ -25,6 +25,9 @@ $router->group(['prefix' => 'api'], function () use ($router) {
         $router->post('address', 'WalletController@Address');
         $router->post('referrals','ReferralController@referrals');
         $router->post('tickets','TicketController@tickets');
+        $router->post('profile','UserController@Profile');
+        $router->post('update-info','UserController@Update');
+        $router->post('change-password','UserController@ChangePass');
         $router->post('new-ticket','TicketController@newTicket');
         $router->post('view-ticket','TicketController@viewTicket');
         $router->post('replay-ticket','TicketController@replayTicket');
@@ -33,6 +36,7 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->post('register','UserController@Register');
     $router->post('login','UserController@Login');
     $router->post('activate','UserController@Active');
+    $router->post('forget','UserController@Forget');
     
     $router->get('plans','PlansController@plans');
     $router->get('coins','CoinsController@coins');

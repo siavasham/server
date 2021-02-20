@@ -100,6 +100,50 @@ class UserController extends Controller
     public function Me(Request $request){
         return response()->json(['success' => $request->user]); 
     }
+    public function Profile(Request $request){
+        $user = User::where('id',$request->user->id) ->first();
+        if(!$user){
+            return response()->json(['error' => 'wrong-user']); 
+        }
+        return response()->json(['success' =>$user]);
+    }
+    public function Update(Request $request){
+        $credentials = $request->only('fullname','tell','lang');
+        User::where('id',$request->user->id)
+            ->update($credentials);
+        return response()->json(['success' =>true]);
+    }
+    public function ChangePass(Request $request){
+        $validator = Validator::make($request->all(), [ 
+            'oldPassword' => 'required', 
+            'newPassword' => 'required',
+        ]);
+        
+        if ($validator->fails()) { 
+            return response()->json(['error'=>$validator->errors()], 401);            
+        }
+        $user = User::where('id',$request->user->id) ->where('password',md5($request->oldPassword)) ->first();
+        if(!$user){
+            return response()->json(['error' => 'wrong-user']); 
+        }
+        $user->password = md5($request->newPassword); 
+        $user->save();
+        return response()->json(['success' =>true]);
+    }
+    public function Forget(Request $request){
+        $validator = Validator::make($request->all(), [ 
+            'email' => 'required|email', 
+        ]);
+        if ($validator->fails()) { 
+            return response()->json(['error'=>'wrong-user'], 401);            
+        }
+        $user = User::where('email',$request->email) ->first();
+        if(!$user){
+            return response()->json(['error' => 'wrong-user']); 
+        }
+        
+        return response()->json(['success' =>true]);
+    }
 
     function makeLogin($user,$request){
         $credentials = ['user_id'=>$user->id,'ip'=> $request->ip()];

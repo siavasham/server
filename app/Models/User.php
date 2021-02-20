@@ -20,7 +20,7 @@ class User extends Model
      *
      * @var array
      */
-    protected $hidden = [];
+    protected $hidden = ['password'];
 
     public function __construct(array $attributes = [])
     {
