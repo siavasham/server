@@ -25,11 +25,11 @@
                 $request->merge(['user'=>$payload['user']]);
             } catch (Exception $e) {
                 if ($e instanceof \Tymon\JWTAuth\Exceptions\TokenInvalidException){
-                    return response()->json(['success' => 'Token is Invalid']);
+                    return response()->json(['login' => 'Token is Invalid']);
                 }else if ($e instanceof \Tymon\JWTAuth\Exceptions\TokenExpiredException){
-                    return response()->json(['success' => 'Token is Expired']);
+                    return response()->json(['login' => 'Token is Expired']);
                 }else{
-                    return response()->json(['success' => 'Authorization Token not found']);
+                    return response()->json(['login' => 'Authorization Token not found']);
                 }
             }
             return $next($request);

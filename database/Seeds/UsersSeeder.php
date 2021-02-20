@@ -17,7 +17,7 @@ class UsersSeeder extends Seeder
         User::truncate();
 
         User::insert([
-            ['name'=>'admin','email'=>'admin@stronghold','password'=>'admin','lang'=>'fa']
+            ['name'=>'admin','email'=>'admin@strong.hold','password'=>'21232f297a57a5a743894a0e4a801fc3','lang'=>'fa']
         ]);
     }
 }

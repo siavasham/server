@@ -106,7 +106,7 @@ class UserController extends Controller
         Login::create($credentials);
         $user_data = ['id'=>$user->id];
         $token = $this->generateToken($user_data);
-        return response()->json(['success' =>['token'=>$token,'name'=>$user->name]]);
+        return response()->json(['success' =>['token'=>$token,'name'=>$user->name,'lang'=>$user->lang]]);
     }
     function generateToken($user_data){
         $factory = JWTFactory::customClaims([
