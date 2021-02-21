@@ -5,7 +5,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ticket extends Model 
 {
-    public $timestamps = false;
     protected $table = 'ticket';
     /**
      * The attributes that are mass assignable.
@@ -26,5 +25,9 @@ class Ticket extends Model
      public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);
+    }
+    public function messages()
+    {
+        return $this->hasMany(TicketMsg::class);
     }
 }

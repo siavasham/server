@@ -11,11 +11,13 @@ class ReferralController extends Controller
     public $successStatus = 200;
 
     public function referrals(Request $request){
-        $referals = Referral::where('user_id',$request->user->id)->get()->map(function ($ref) {
-        $ref->referral = $ref->user->name;
-        unset( $ref->user);
-        return $ref;
-    });
+        $referals = Referral::where('user_id',$request->user->id)
+        ->get()
+        ->map(function ($ref) {
+            $ref->referral = $ref->user->name;
+            unset( $ref->user);
+            return $ref;
+        });
         return response()->json(['success' =>$referals]); 
     }
    

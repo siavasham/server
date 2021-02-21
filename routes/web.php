@@ -25,6 +25,9 @@ $router->group(['prefix' => 'api'], function () use ($router) {
         $router->post('address', 'WalletController@Address');
         $router->post('referrals','ReferralController@referrals');
         $router->post('tickets','TicketController@tickets');
+        $router->post('new-ticket','TicketController@newTicket');
+        $router->post('view-ticket','TicketController@viewTicket');
+        $router->post('replay-ticket','TicketController@replayTicket');
     });
 
     $router->post('register','UserController@Register');

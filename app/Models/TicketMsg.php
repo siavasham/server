@@ -13,7 +13,7 @@ class TicketMsg extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id','ticket_id','text',
+        'user_id','ticket_id','text','added_on'
     ];
 
     /**
