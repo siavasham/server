@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller; 
 use App\Models\User; 
 use App\Models\Wallet; 
+use App\Models\Coin; 
 use Validator;
 
 class WalletController extends Controller
@@ -31,6 +32,11 @@ class WalletController extends Controller
             $wallet = Wallet::updateOrCreate($credentials);   
         }
         return response()->json(['success' =>$wallet]); 
+    }
+    public function Wallet(Request $request){
+        $wallet = Wallet::where('user_id',$request->user->id)->get();
+        $coins = Coin::where('status', true)->get();
+        return response()->json(['success' =>['coins'=>$coins,'wallet'=>$wallet]]); 
     }
    
 }

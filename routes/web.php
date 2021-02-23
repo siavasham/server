@@ -23,6 +23,7 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->group(['middleware' => 'jwt'], function () use ($router) {
         $router->post('me', 'UserController@Me');
         $router->post('address', 'WalletController@Address');
+        $router->post('wallet', 'WalletController@Wallet');
         $router->post('referrals','ReferralController@referrals');
         $router->post('tickets','TicketController@tickets');
         $router->post('profile','UserController@Profile');
