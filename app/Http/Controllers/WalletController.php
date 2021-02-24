@@ -33,6 +33,25 @@ class WalletController extends Controller
         }
         return response()->json(['success' =>$wallet]); 
     }
+    public function Coin(Request $request){
+         $validator = Validator::make($request->all(), [ 
+            'coin' => 'required', 
+        ]);
+        if ($validator->fails()) { 
+            return response()->json(['error'=>$validator->errors()], 401);            
+        }
+        $wallet = Wallet::where('user_id',$request->user->id)->where('coin',$request->coin) ->first();
+        if(!$wallet){
+            $obj = new CoinRemitter($request->coin);
+            $res = $obj->get_new_address(['label'=>$request->user->id]);
+            if (!isset($res['data'])){
+               return response()->json(['error' => 'haveProblem']); 
+            }
+            $credentials = ['user_id'=>$request->user->id,'coin'=>$request->coin,'address'=>$res['data']['address']];
+            $wallet = Wallet::updateOrCreate($credentials);   
+        }
+        return response()->json(['success' =>['wallet'=>$wallet]]); 
+    }
     public function Wallet(Request $request){
         $wallet = Wallet::where('user_id',$request->user->id)->get();
         $coins = Coin::where('status', true)->get();
