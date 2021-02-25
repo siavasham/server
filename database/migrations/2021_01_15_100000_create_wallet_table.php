@@ -21,6 +21,7 @@ class CreateWalletTable extends Migration
             $table->double('balance', 15, 8)->default(0);
             $table->double('freezed', 15, 8)->default(0);
             $table->double('profit', 15, 8)->default(0);
+            $table->double('referral', 15, 8)->default(0);
             $table->timestamps();
         });
     }

@@ -139,7 +139,7 @@ class Coinremitter {
      * @return array() returns array with success or error response.
      */
     public function get_coin_rate(){
-        $url = $this->url.'get-coin-rate';
+        $url = $this->url.$this->version.'/get-coin-rate';
         $res = $this->curl_call($url, $this->param);
         return $res;
     }
@@ -151,13 +151,17 @@ class Coinremitter {
      */
     public  function curl_call($url, $post = '') {
 	
-        if(!isset($post['api_key']) && !isset($post['password'])){
-            return $this->error_res('Please set API_KEY and PASSWORD for '.$this->coin);
-        }
         $userAgent = 'CR@' . $this->version . ',laravel plugin@'.$this->plugin_version; // 0.1.5
         $header = array('User-Agent' => $userAgent);
-        $response = Http::withHeaders($header)->post($url,$post);
-
+        if($this->coin !=''){
+            if(!isset($post['api_key']) && !isset($post['password'])){
+                return $this->error_res('Please set API_KEY and PASSWORD for '.$this->coin);
+            }
+            $response = Http::withHeaders($header)->post($url,$post);
+        }
+        else{
+            $response = Http::withHeaders($header)->get($url);
+        }
         if($response->status() == 200){
             return $response->json();
         }else{

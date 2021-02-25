@@ -17,7 +17,7 @@ class CreateCoinsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name',10);
             $table->string('fullname',15);
-            $table->integer('price')->default(0);
+            $table->double('price', 15, 8)->default(0);
             $table->boolean('status')->default(true);
         });
     }

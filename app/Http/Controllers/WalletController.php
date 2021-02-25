@@ -54,8 +54,44 @@ class WalletController extends Controller
     }
     public function Wallet(Request $request){
         $wallet = Wallet::where('user_id',$request->user->id)->get();
-        $coins = Coin::where('status', true)->get();
+        try {
+            $coins = Coin::where('status', true)->get();
+            $obj = new CoinRemitter($request->coin);
+            $res = $obj->get_coin_rate();
+            if (isset($res['data'])){     
+                foreach ($coins as $coin) {
+                    $coin->price = $res['data'][$coin->name]['price'];
+                    $coin->save();
+                }
+            }
+        } catch (\Throwable $th) {
+        }
+        
         return response()->json(['success' =>['coins'=>$coins,'wallet'=>$wallet]]); 
+    }
+    public function Withdraw(Request $request){
+        $validator = Validator::make($request->all(), [ 
+            'coin' => 'required', 
+            'amount' => 'required', 
+            'address' => 'required', 
+        ]);
+        if ($validator->fails()) { 
+            return response()->json(['error'=>$validator->errors()], 401);            
+        }
+        $wallet = Wallet::where('user_id',$request->user->id)->where('coin',$request->coin) ->first();
+        if(!$wallet){
+            return response()->json(['error' => 'no-wallet-found']); 
+        }
+        $obj = new CoinRemitter($request->coin);
+        $res = $obj->validate_address(['address'=>$request->address]);
+        if ($res['data']['valid'] === false){ 
+            return response()->json(['error' =>['address'=>['validation.invalid']]] );
+        }
+        $withdrawable =  $wallet->balance + $wallet->profit + $wallet->referral -$wallet->freezed ;
+        if($withdrawable < $request->amount){
+            return response()->json(['error' =>['amount'=>['validation.moreBalance']]] );
+        }
+        return response()->json(['success' =>true]); 
     }
    
 }
