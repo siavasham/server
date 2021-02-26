@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User; 
 use App\Models\Wallet; 
 use App\Models\Coin; 
+use App\Models\Transaction; 
 use Validator;
 
 class WalletController extends Controller
@@ -87,11 +88,42 @@ class WalletController extends Controller
         if ($res['data']['valid'] === false){ 
             return response()->json(['error' =>['address'=>['validation.invalid']]] );
         }
-        $withdrawable =  $wallet->balance + $wallet->profit + $wallet->referral -$wallet->freezed ;
-        if($withdrawable < $request->amount){
+        // $withdrawable =  $wallet->balance + $wallet->profit + $wallet->referral -$wallet->freezed ;
+        if($wallet->balance < $request->amount){
             return response()->json(['error' =>['amount'=>['validation.moreBalance']]] );
         }
-        return response()->json(['success' =>true]); 
+        $credential1 = $request->only('coin','amount','address');
+        $credential2 = ['user_id'=>$request->user->id,'type'=> 'withdraw','data'=>''];
+        $transaction = Transaction::create($credential1+$credential2);
+        return response()->json(['success' =>$transaction]); 
     }
-   
+    public function Statistics(Request $request){
+        try {
+            $coins = Coin::where('status', true)->get();
+            $obj = new CoinRemitter($request->coin);
+            $res = $obj->get_coin_rate();
+            if (isset($res['data'])){     
+                foreach ($coins as $coin) {
+                    $coin->price = $res['data'][$coin->name]['price'];
+                    $coin->save();
+                }
+            }
+        } catch (\Throwable $th) {
+        }
+        $wallet = Wallet::where('user_id',$request->user->id)
+                ->get()
+                ->map(function ($ref) {
+                    $temp = ['deposit'=> $ref->price->price * $ref->deposit]
+                          + ['profit'=> $ref->price->price * $ref->profit]
+                          + ['referral'=> $ref->price->price * $ref->referral];
+                    return $temp;
+                });
+        $ret = ['deposit'=>0,'profit'=>0,'referral'=>0];
+        foreach ($wallet as $sum) {
+            $ret['deposit'] += $sum['deposit'];
+            $ret['profit'] += $sum['profit'];
+            $ret['referral'] += $sum['referral'];
+        }    
+        return response()->json(['success' =>$ret]); 
+    }
 }

@@ -25,6 +25,7 @@ $router->group(['prefix' => 'api'], function () use ($router) {
         $router->post('address', 'WalletController@Address');
         $router->post('wallet', 'WalletController@Wallet');
         $router->post('withdraw', 'WalletController@Withdraw');
+        $router->post('statistics', 'WalletController@Statistics');
         $router->post('wallet-coin', 'WalletController@Coin');
         $router->post('referrals','ReferralController@referrals');
         $router->post('tickets','TicketController@tickets');
