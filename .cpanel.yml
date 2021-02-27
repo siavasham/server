@@ -2,5 +2,3 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/strojczd/public_html/
-    - /bin/cp -u -r * $DEPLOYPATH
-    - /bin/cp .htaccess $DEPLOYPATH
