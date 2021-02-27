@@ -2,4 +2,5 @@
 
 return [
     'locale' => 'fa',
+    
 ];
