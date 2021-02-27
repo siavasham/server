@@ -1,5 +1,10 @@
-DirectoryIndex index.php
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
 
-RewriteEngine On 
-RewriteRule ^$ public/index.php [L]
-RewriteRule ^((?!public/).*)$ public/$1 [L,NC]
+    DirectoryIndex index.php
+    RewriteEngine On 
+    RewriteRule ^$ public/index.php [L]
+    RewriteRule ^((?!public/).*)$ public/$1 [L,NC]
+</IfModule>
