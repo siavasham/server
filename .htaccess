@@ -3,9 +3,10 @@
         Options -MultiViews
     </IfModule>
 
-    RewriteEngine On
+DirectoryIndex index.php
 
-    # Redirect All Requests To The Subfolder
-    RewriteRule ^ /public
+RewriteEngine On 
+RewriteRule ^$ public/index.php [L]
+RewriteRule ^((?!public/).*)$ public/$1 [L,NC]
 
 </IfModule>
