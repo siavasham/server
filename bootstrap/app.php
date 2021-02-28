@@ -2,7 +2,7 @@
 
 require_once __DIR__.'/../vendor/autoload.php';
 
-$isdev = $_SERVER['HTTP_HOST'] == 'localhost:8000';
+$isdev = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] == 'localhost:8000':true;
 (new Laravel\Lumen\Bootstrap\LoadEnvironmentVariables(
     dirname(__DIR__) ,$isdev ?'.env.local':null
 ))->bootstrap();
