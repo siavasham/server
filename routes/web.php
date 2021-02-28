@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Artisan;
 $router->get('/','HomeController@index');
 $router->get('/migrate', function () {
     return Artisan::call('migrate', ["--force" => true ]);
+    return Artisan::call('db:seed');
 });
 $router->group(['prefix' => 'api'], function () use ($router) {
     $router->group(['middleware' => 'jwt'], function () use ($router) {
