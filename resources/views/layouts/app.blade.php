@@ -34,9 +34,9 @@
 
 
       <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-      <script src="{{ asset(mix('js/jquery.min.js')) }}"></script>
-      <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
-      <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
-      <script src="{{ asset('js/front.js') }}"></script>
+      <script src="{{ asset(mix('/js/jquery.min.js')) }}"></script>
+      <script src="{{ asset('/js/bootstrap.bundle.min.js') }}"></script>
+      <script src="{{ asset('/js/owl.carousel.min.js') }}"></script>
+      <script src="{{ asset('/js/front.js') }}"></script>
   </body>
 </html>
