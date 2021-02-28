@@ -4,7 +4,7 @@
 
   @include('section.header')
    
-    <section class="bg-center py-0" id="about" style="background: url(img/service-bg.svg) no-repeat; background-size: cover">
+    <section class="bg-center py-0" id="about" style="background: url({{ asset('/img/service-bg.svg') }}) no-repeat; background-size: cover">
       <section class="about py-0">
         <div class="container">
           <p class="h6 text-uppercase text-primary">Services</p>
@@ -52,7 +52,7 @@
       <section class="with-pattern-1" id="services">
         <div class="container">
           <div class="row align-items-center mb-5">
-            <div class="col-lg-6 mb-5 mb-lg-0"><img class="img-fluid w-100 px-lg-5" src="img/objects.svg" alt=""></div>
+            <div class="col-lg-6 mb-5 mb-lg-0"><img class="img-fluid w-100 px-lg-5" src="{{ asset('/img/objects.svg') }}" alt=""></div>
             <div class="col-lg-6">
               <h2>The Best Business Solutions Guide for You</h2>
               <p class="text-muted">Dolor sit amet consectetur elit sed do eiusmod tempor incididunt labore dolore magna aliqua enim ad minim veniam quis nostrud exercitation.</p>
@@ -126,7 +126,7 @@
         </div>
       </section>
     </section>
-    <section class="p-0" id="testimonials" style="background: url(img/testimonials-bg.png) no-repeat; background-size: 40% 100%; background-position: left center">
+    <section class="p-0" id="testimonials" style="background: url({{ asset('/img/testimonials-bg.png) no-repeat; background-size: 40% 100%; background-position: left center">
       <div class="container text-center">
         <p class="h6 text-uppercase text-primary">Testimonials</p>
         <h2 class="mb-5">What Our Clients Says?</h2>
@@ -136,7 +136,7 @@
               <div class="mx-3 mx-lg-5 my-5 pt-3">
                 <div class="card shadow rounded-lg px-4 py-5 px-lg-5 with-pattern bg-white border-0">
                   <div class="card-body index-forward pt-5 rounded-lg">
-                    <div class="testimonial-img"><img class="rounded-circle" src="img/avatar-1.jpg" alt=""/></div>
+                    <div class="testimonial-img"><img class="rounded-circle" src="{{ asset('/img/avatar-1.jpg" alt=""/></div>
                     <p class="lead text-muted mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
                     <h5 class="font-weight-bold mb-0">Sarah Hudson</h5>
                     <p class="text-primary mb-0 text-small">Tech Developer</p>
@@ -146,7 +146,7 @@
               <div class="mx-3 mx-lg-5 my-5 pt-3">
                 <div class="card shadow rounded-lg px-4 py-5 px-lg-5 with-pattern bg-white border-0">
                   <div class="card-body index-forward pt-5 rounded-lg">
-                    <div class="testimonial-img"><img class="rounded-circle" src="img/avatar-2.png" alt=""/></div>
+                    <div class="testimonial-img"><img class="rounded-circle" src="{{ asset('/img/avatar-2.png" alt=""/></div>
                     <p class="lead text-muted mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
                     <h5 class="font-weight-bold mb-0">Frank Smith</h5>
                     <p class="text-primary mb-0 text-small">Tech Developer</p>
@@ -156,7 +156,7 @@
               <div class="mx-3 mx-lg-5 my-5 pt-3">
                 <div class="card shadow rounded-lg px-4 py-5 px-lg-5 with-pattern bg-white border-0">
                   <div class="card-body index-forward pt-5 rounded-lg">
-                    <div class="testimonial-img"><img class="rounded-circle" src="img/avatar-1.jpg" alt=""/></div>
+                    <div class="testimonial-img"><img class="rounded-circle" src="{{ asset('/img/avatar-1.jpg" alt=""/></div>
                     <p class="lead text-muted mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
                     <h5 class="font-weight-bold mb-0">Sarah Hudson</h5>
                     <p class="text-primary mb-0 text-small">Tech Developer</p>
@@ -166,7 +166,7 @@
               <div class="mx-3 mx-lg-5 my-5 pt-3">
                 <div class="card shadow rounded-lg px-4 py-5 px-lg-5 with-pattern bg-white border-0">
                   <div class="card-body index-forward pt-5 rounded-lg">
-                    <div class="testimonial-img"><img class="rounded-circle" src="img/avatar-2.png" alt=""/></div>
+                    <div class="testimonial-img"><img class="rounded-circle" src="{{ asset('/img/avatar-2.png" alt=""/></div>
                     <p class="lead text-muted mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
                     <h5 class="font-weight-bold mb-0">Frank Smith</h5>
                     <p class="text-primary mb-0 text-small">Tech Developer</p>
