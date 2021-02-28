@@ -1,4 +1,4 @@
- <section class="hero bg-top" id="hero" style="background: url({{ asset('img/banner-4.png) }}) no-repeat; background-size: 100% 80%">
+ <section class="hero bg-top" id="hero" style="background: url({{ asset('img/banner-4.png') }}) no-repeat; background-size: 100% 80%">
       <div class="container">
         <div class="row py-5">
           <div class="col-lg-5 py-5">
