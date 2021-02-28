@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="{{ asset(mix('css/style.default.css')) }}">
     <link rel="stylesheet" href="{{ asset(mix('css/custom.css')) }}">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="shortcut icon" href="img/favicon.png">
+    <link rel="shortcut icon" href="{{ asset(mix('img/favicon.png')) }}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   </head>
   <body class = "{{$user->isRtl ? 'rtl':'' }} ">
