@@ -297,7 +297,7 @@ if (!function_exists('asset')) {
      */
     function asset($path, $secure = null)
     {
-        return (new UrlGenerator(app()))->to($path, null, $secure);
+        return (new UrlGenerator(app()))->to(env('ASSET_URL').$path, null, $secure);
     }
 }
 
