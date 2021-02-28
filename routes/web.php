@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Artisan;
+define('STDIN',fopen("php://stdin","r"));
+
 /** @var \Laravel\Lumen\Routing\Router $router */
 
 /*
