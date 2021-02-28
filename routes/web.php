@@ -23,7 +23,7 @@ $router->get('/migrate', function () {
     return Artisan::call('migrate', ["--force" => true ]);
 });
 $router->get('/seed', function () {
-    return Artisan::call('db:seed');
+    return Artisan::call('db:seed',['--class' => 'Namespace\Seeds\DatabaseSeeder']);
 });
 $router->group(['prefix' => 'api'], function () use ($router) {
     $router->group(['middleware' => 'jwt'], function () use ($router) {
