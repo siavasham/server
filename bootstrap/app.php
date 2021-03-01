@@ -2,8 +2,9 @@
 
 require_once __DIR__.'/../vendor/autoload.php';
 
+$isdev = $_SERVER['HTTP_HOST'] == 'localhost:8000';
 (new Laravel\Lumen\Bootstrap\LoadEnvironmentVariables(
-    dirname(__DIR__)
+    dirname(__DIR__) ,$isdev ?'.env.local':null
 ))->bootstrap();
 
 date_default_timezone_set(env('APP_TIMEZONE', 'UTC'));

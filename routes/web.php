@@ -18,7 +18,9 @@
 //     return view('home');
 // });
 $router->get('/','HomeController@index');
-
+$router->get('/migrate', function () {
+    return Artisan::call('migrate', ["--force" => true ]);
+});
 $router->group(['prefix' => 'api'], function () use ($router) {
     $router->group(['middleware' => 'jwt'], function () use ($router) {
         $router->post('me', 'UserController@Me');
