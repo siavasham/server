@@ -25,11 +25,13 @@
 
     /* Layout ------------------------------ */
     .email-wrapper {
-      font-family:tahoma;
       width: 100%;
       margin: 0;
       padding: 0;
       background-color: #F5F7F9;
+    }
+    .email-wrapper >* {
+      font-family:tahoma;
     }
 
     .email-content {
@@ -99,6 +101,7 @@
 
     .content-cell {
       padding: 35px;
+      text-align:center;
     }
 
     .align-right {
@@ -132,6 +135,7 @@
       color: #839197;
       font-size: 16px;
       line-height: 1.5em;
+      text-align:center;
     }
 
     p.sub {

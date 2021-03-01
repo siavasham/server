@@ -44,6 +44,7 @@ class UserController extends Controller
         app()->setlocale('fa');
         Mail::send('email.verify', ['code' => $user->code], function ($m) use ($user) {
             $m->to($user->email, $user->name)->subject(__('emailVerification'));
+            return response()->json(['success' => true]); 
         });
        
         return response()->json(['success' => true]); 
