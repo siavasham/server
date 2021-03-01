@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Artisan;
 /** @var \Laravel\Lumen\Routing\Router $router */
 
 /*
