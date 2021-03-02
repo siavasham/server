@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Artisan;
-if (!defined('STDIN')) {
-  define('STDIN', fopen('php://stdin', 'r'));
-}
+// if (!defined('STDIN')) {
+//   define('STDIN', fopen('php://stdin', 'r'));
+// }
 /** @var \Laravel\Lumen\Routing\Router $router */
 
 /*
@@ -22,12 +22,13 @@ if (!defined('STDIN')) {
 //     return view('home');
 // });
 $router->get('/','HomeController@index');
-$router->get('/migrate', function () {
-    return Artisan::call('migrate', ["--force" => true ]);
-});
-$router->get('/seed', function () {
-    return Artisan::call('db:seed',['--class' => 'DatabaseSeeder','--force' => true ]);
-});
+// $router->get('/migrate', function () {
+//     return Artisan::call('migrate', ["--force" => true ]);
+// });
+// $router->get('/seed', function () {
+//     return Artisan::call('db:seed',['--class' => 'DatabaseSeeder','--force' => true ]);
+// });
+
 $router->group(['prefix' => 'api'], function () use ($router) {
     $router->group(['middleware' => 'jwt'], function () use ($router) {
         $router->post('me', 'UserController@Me');

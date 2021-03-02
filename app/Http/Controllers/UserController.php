@@ -40,15 +40,15 @@ class UserController extends Controller
         TempUser::where('email',$credentials['email'])->delete();
         $user = TempUser::updateOrCreate($credentials);
 
-        // try {
-        //     app()->setlocale('fa');
-        //     Mail::send('email.verify', ['code' => $user->code], function ($m) use ($user) {
-        //         $m->to($user->email, $user->name)->subject(__('emailVerification'));
-        //     });
-        // }catch (Exception $e) {
-        //     return response()->json(['success' =>$user->code]); 
-        // }
-        return response()->json(['success' =>$user->code]); 
+        try {
+            app()->setlocale('fa');
+            Mail::send('email.verify', ['code' => $user->code], function ($m) use ($user) {
+                $m->to($user->email, $user->name)->subject(__('emailVerification'));
+            });
+        }catch (Exception $e) {
+            return response()->json(['error' =>'cant-send-email']); 
+        }
+        return response()->json(['success' => true]); 
     }
     public function Login(Request $request){
          $validator = Validator::make($request->all(), [ 
