@@ -45,6 +45,7 @@ class UserController extends Controller
             Mail::send('email.verify', ['code' => $user->code], function ($m) use ($user) {
                 $m->to($user->email, $user->name)->subject(__('emailVerification'));
             });
+            return response()->json(['success' => true]); 
         }catch (Exception $e) {
             return response()->json(['error' =>'cant-send-email']); 
         }

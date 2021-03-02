@@ -16,6 +16,7 @@
       background-color: #F5F7F9;
       color: #839197;
       direction:rtl;
+      font-family:tahoma;
     }
 
     a {
