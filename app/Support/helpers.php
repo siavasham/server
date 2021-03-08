@@ -300,7 +300,9 @@ if (!function_exists('asset')) {
         return (new UrlGenerator(app()))->to(($secure ?"":env('ASSET_URL')).$path, null, $secure);
     }
 }
-
+function sub_asset($sub,$path, $secure = null) {
+    return str_replace((new UrlGenerator(app()))->to(($secure ?"":env('ASSET_URL')).$path, null, $secure),':',':'.$sub);
+}
 if (!function_exists('back')) {
     /**
      * Create a new redirect response to the previous location.
