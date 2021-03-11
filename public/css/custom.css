@@ -75,7 +75,7 @@ body {
 .coin {
     width: 4rem;
     height: 4rem;
-    mask-size: contain;
     -webkit-mask-size: contain;
+    mask-size: contain;
     margin: auto;
 }
