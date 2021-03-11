@@ -301,7 +301,9 @@ if (!function_exists('asset')) {
     }
 }
 function sub_asset($sub,$path, $secure = null) {
-    return str_replace((new UrlGenerator(app()))->to(($secure ?"":env('ASSET_URL')).$path, null, $secure),':',':'.$sub);
+    $ret = (new UrlGenerator(app()))->to(($secure ?"":env('ASSET_URL')).$path, null, $secure);
+    $ret = str_replace('//','//'.$sub.'.',$ret);
+    return $ret;
 }
 if (!function_exists('back')) {
     /**

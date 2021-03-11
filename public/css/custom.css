@@ -30,3 +30,51 @@ body {
 .card-img {
     width: 50%;
 }
+.rtl .list-check li::before {
+    top: 10px;
+    right: -30px;
+    left: auto;
+}
+
+.BTC {
+    background-color: #f7931a;
+    -webkit-mask: url(../img/crypto/BTC.svg) no-repeat center;
+    mask: url(../img/crypto/BTC.svg) no-repeat center;
+}
+.BCH {
+    background-color: #76ce1e;
+    transform: rotate(-15deg);
+    -webkit-mask: url(../img/crypto/BTC.svg) no-repeat center;
+    mask: url(../img/crypto/BTC.svg) no-repeat center;
+}
+.ETH {
+    background-color: #62688f;
+    -webkit-mask: url(../img/crypto/ETH.svg) no-repeat center;
+    mask: url(../img/crypto/ETH.svg) no-repeat center;
+}
+.DOGE {
+    background-color: #ba9f33;
+    -webkit-mask: url(../img/crypto/DOGE.svg) no-repeat center;
+    mask: url(../img/crypto/DOGE.svg) no-repeat center;
+}
+.DASH {
+    background-color: #1c75bc;
+    -webkit-mask: url(../img/crypto/DASH.svg) no-repeat center;
+    mask: url(../img/crypto/DASH.svg) no-repeat center;
+}
+.LTC {
+    background-color: #838383;
+    -webkit-mask: url(../img/crypto/LTC.svg) no-repeat center;
+    mask: url(../img/crypto/LTC.svg) no-repeat center;
+}
+.USDT {
+    background-color: #2ca07a;
+    -webkit-mask: url(../img/crypto/USDT-alt.svg) no-repeat center;
+    mask: url(../img/crypto/USDT-alt.svg) no-repeat center;
+}
+.coin {
+    width: 4rem;
+    height: 4rem;
+    mask-size: contain;
+    margin: auto;
+}
