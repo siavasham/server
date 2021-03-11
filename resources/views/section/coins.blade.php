@@ -1,6 +1,6 @@
-<div class="row align-items-center">
+<div class="row">
     <div class="col-lg-5 mb-5 mb-lg-0">
-        <h2>{{ __('home.wallet') }}</h2>
+        <h2 class="mb-3">{{ __('home.wallet') }}</h2>
         <p class="text-muted">{{ __('home.wallet-desc') }}</p>
         <ul class="list-check">
             <li class="text-muted mb-2">{{ __('home.wallet-desc-1') }}</li>

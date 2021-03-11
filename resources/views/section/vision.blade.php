@@ -1,4 +1,4 @@
-<div class="row align-items-center mb-5">
+<div class="row mb-5">
     <div class="col-lg-4">
         <h2>{{ __('home.our-vision') }}</h2>
         <p class="text-muted">{{ __('home.vision-desc') }}</p>
