@@ -42,7 +42,7 @@ class UserController extends Controller
 
        
         app()->setlocale('fa');
-        Mail::queue('email.verify', ['code' => $user->code], function ($m) use ($user) {
+        Mail::send('email.verify', ['code' => $user->code], function ($m) use ($user) {
             $m->to($user->email, $user->name)->subject(__('emailVerification'));
         });
        
