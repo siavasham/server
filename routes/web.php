@@ -45,6 +45,7 @@ $router->group(['prefix' => 'api'], function () use ($router) {
         $router->post('new-ticket','TicketController@newTicket');
         $router->post('view-ticket','TicketController@viewTicket');
         $router->post('replay-ticket','TicketController@replayTicket');
+        $router->post('investing','InvestController@start');
     });
 
     $router->post('register','UserController@Register');
@@ -53,6 +54,7 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->post('forget','UserController@Forget');
     
     $router->get('plans','PlansController@plans');
+    $router->get('plans/{plan}','PlansController@plan');
     $router->get('coins','CoinsController@coins');
 });
 

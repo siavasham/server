@@ -14,5 +14,10 @@ class PlansController extends Controller
         $plans = Plan::where('status', true)->get();
         return response()->json(['success' =>$plans]); 
     }
+    public function Plan(Request $request){
+        $plan = $request->plan;
+        $plans = Plan::find($plan);
+        return response()->json(['success' =>$plans]); 
+    }
    
 }

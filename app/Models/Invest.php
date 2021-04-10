@@ -5,7 +5,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Invest extends Model 
 {
-    public $timestamps = false;
     protected $table = 'invest';
     /**
      * The attributes that are mass assignable.
