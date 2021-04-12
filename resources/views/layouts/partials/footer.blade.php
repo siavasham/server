@@ -37,7 +37,7 @@
             <!-- <li class="list-inline-item"><a class="social-link" href="#"><i class="fab fa-facebook-f"></i></a></li> -->
             <!-- <li class="list-inline-item"><a class="social-link" href="#"><i class="fab fa-twitter"></i></a></li> -->
             <!-- <li class="list-inline-item"><a class="social-link" href="#"><i class="fab fa-google-plus"></i></a></li> -->
-            <li class="list-inline-item"><a class="social-link" href="instagram.com/stronghold.live"><i class="fab fa-instagram"></i></a></li>
+            <li class="list-inline-item"><a class="social-link" href="https://instagram.com/stronghold.live"><i class="fab fa-instagram"></i></a></li>
         </ul>
         </div>
     </div>
