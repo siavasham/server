@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row pt-5 mt-5">
     <div class="col-lg-5 mb-5 mb-lg-0">
         <h2 class="mb-3">{{ __('home.wallet') }}</h2>
         <p class="text-muted">{{ __('home.wallet-desc') }}</p>

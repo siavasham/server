@@ -7,7 +7,7 @@
         <ul class="navbar-nav ml-auto">
             <li class="nav-item"><a class="nav-link link-scroll active" href="#hero">{{ __('home.home') }} <span class="sr-only">(current)</span></a></li>
             <li class="nav-item"><a class="nav-link link-scroll" href="#about">{{ __('home.about') }}</a></li>
-            <li class="nav-item"><a class="nav-link link-scroll" href="#services">{{ __('home.plans') }}</a></li>
+            <li class="nav-item"><a class="nav-link link-scroll" href="#plans">{{ __('home.plans') }}</a></li>
             <!-- <li class="nav-item"><a class="nav-link link-scroll" href="#testimonials">Testimonials</a></li> -->
         </ul>
         </div>
