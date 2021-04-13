@@ -28,6 +28,7 @@ return array(
     'App\\Library\\Notifications' => $baseDir . '/app/Library/Notification.php',
     'App\\Listeners\\ExampleListener' => $baseDir . '/app/Listeners/ExampleListener.php',
     'App\\Models\\Coin' => $baseDir . '/app/Models/Coin.php',
+    'App\\Models\\Faq' => $baseDir . '/app/Models/Faq.php',
     'App\\Models\\Invest' => $baseDir . '/app/Models/Invest.php',
     'App\\Models\\Login' => $baseDir . '/app/Models/Login.php',
     'App\\Models\\Plan' => $baseDir . '/app/Models/Plan.php',

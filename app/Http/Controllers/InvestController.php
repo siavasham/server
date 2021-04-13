@@ -41,21 +41,14 @@ class InvestController extends Controller
     }
    
    
-    public function view(Request $request){
-        // $validator = Validator::make($request->all(), [ 
-        //     'ticket' => 'required', 
-        // ]);
-        // if ($validator->fails()) { 
-        //     return response()->json(['error'=>$validator->errors()], 401);            
-        // }
-        //  $ticket =Ticket::where('user_id',$request->user->id)
-        //         ->where('id',$request->ticket)
-        //         ->get()
-        //         ->map(function ($ref) {
-        //             $ref->messages = $ref->messages;
-        //             return $ref;
-        //         });
-        // return response()->json(['success' => $ticket[0]]); 
+    public function history(Request $request){
+         $invest = Invest::where('user_id',$request->user->id)
+                ->get()
+                ->map(function ($ref) {
+                    $ref->plan = $ref->plan;
+                    return $ref;
+                });
+        return response()->json(['success' => $invest]); 
     }
    
 }

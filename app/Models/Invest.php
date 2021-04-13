@@ -26,4 +26,8 @@ class Invest extends Model
     {
         parent::__construct($attributes);
     }
+    public function plan()
+    {
+        return $this->belongsTo(Plan::class,'plan_id','id');
+    }
 }

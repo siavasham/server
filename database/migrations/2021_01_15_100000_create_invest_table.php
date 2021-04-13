@@ -19,8 +19,10 @@ class CreateInvestTable extends Migration
             $table->integer('plan_id');
             $table->string('coin',10);
             $table->double('amount', 15, 8) ;
-            $table->enum('status', ['open', 'done','cancel'])->default('open');
+            $table->enum('status', ['open', 'done'])->default('open');
             $table->timestamps();
+            $table->timestamp('done_at')->nullable();
+            $table->double('profit', 15, 8)->default(0) ;
         });
     }
 

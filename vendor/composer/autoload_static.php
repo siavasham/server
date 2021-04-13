@@ -608,6 +608,7 @@ class ComposerStaticInit964ac3e1bda254244e18f86a3155c3ad
         'App\\Library\\Notifications' => __DIR__ . '/../..' . '/app/Library/Notification.php',
         'App\\Listeners\\ExampleListener' => __DIR__ . '/../..' . '/app/Listeners/ExampleListener.php',
         'App\\Models\\Coin' => __DIR__ . '/../..' . '/app/Models/Coin.php',
+        'App\\Models\\Faq' => __DIR__ . '/../..' . '/app/Models/Faq.php',
         'App\\Models\\Invest' => __DIR__ . '/../..' . '/app/Models/Invest.php',
         'App\\Models\\Login' => __DIR__ . '/../..' . '/app/Models/Login.php',
         'App\\Models\\Plan' => __DIR__ . '/../..' . '/app/Models/Plan.php',
