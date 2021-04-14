@@ -32,7 +32,7 @@ class HookController extends Controller
                 $wallet->save();
                 $user_id = $wallet->user_id;
             }
-            $credentials = ['user_id'=>$user_id,'coin'=>$request->coin_short_name,'address'=>$request->address ,'amount'=>$request->amount,'status'=>'done' ];
+            $credentials = ['hook_id'=>$request->id,'user_id'=>$user_id,'coin'=>$request->coin_short_name,'address'=>$request->address ,'amount'=>$request->amount,'data'=>json_encode($request->all()),'status'=>'done' ];
             $invest = Transaction::create($credentials);
             return response()->json(['success' =>   true]); 
         }
