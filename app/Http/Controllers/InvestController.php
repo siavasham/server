@@ -7,15 +7,15 @@ use App\Http\Controllers\Controller;
 use App\Models\Invest; 
 use App\Models\Wallet; 
 use Validator;
-use DB;
-use Log;
-DB::listen(function($query) {
-    Log::info(
-        $query->sql,
-        $query->bindings,
-        $query->time
-    );
-});
+// use DB;
+// use Log;
+// DB::listen(function($query) {
+//     Log::info(
+//         $query->sql,
+//         $query->bindings,
+//         $query->time
+//     );
+// });
 class InvestController extends Controller
 {
     public $successStatus = 200;
