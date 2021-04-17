@@ -25,7 +25,7 @@ class HookController extends Controller
             'amount' => 'required',
         ]);
         if ($validator->fails()) { 
-            return response()->json(['error'=>$validator->errors()], 401);            
+            return response()->json(['error'=>$validator->errors()], 200);            
         }
         if($request->type == 'receive'){
             $user_id = 0;
