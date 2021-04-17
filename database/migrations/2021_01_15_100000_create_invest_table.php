@@ -20,9 +20,9 @@ class CreateInvestTable extends Migration
             $table->string('coin',10);
             $table->double('amount', 15, 8) ;
             $table->enum('status', ['open', 'done'])->default('open');
+            $table->double('profit', 15, 8)->default(0) ;
             $table->timestamps();
             $table->timestamp('done_at')->nullable();
-            $table->double('profit', 15, 8)->default(0) ;
         });
     }
 
