@@ -14,6 +14,9 @@ class HookController extends Controller
 {
     public $successStatus = 200;
 
+    public function get(Request $request){
+        return response()->json(['success' =>   true]);
+    }
     public function index(Request $request){
         Log::info([json_encode($request->all()),date('Y-m-d H:i:s')]);
         $validator = Validator::make($request->all(), [ 

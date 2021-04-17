@@ -59,5 +59,6 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->get('coins','CoinsController@coins');
 
     $router->post('hook','HookController@index');
+    $router->get('hook','HookController@get');
 });
 
