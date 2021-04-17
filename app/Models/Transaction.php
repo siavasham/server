@@ -12,7 +12,7 @@ class Transaction extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id','coin','address','amount','type','data'
+        'hook_id', 'user_id','coin','address','amount','type','data'
     ];
 
     /**
