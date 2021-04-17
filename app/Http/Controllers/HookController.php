@@ -14,7 +14,7 @@ class HookController extends Controller
     public $successStatus = 200;
 
     public function index(Request $request){
-        Log::info(json_encode($request->all()),date('Y-m-d H:i:s'));
+        Log::info([json_encode($request->all()),date('Y-m-d H:i:s')]);
         $validator = Validator::make($request->all(), [ 
             'coin_short_name' => 'required', 
             'address' => 'required',
