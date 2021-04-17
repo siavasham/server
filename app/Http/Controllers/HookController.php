@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller; 
 use App\Models\Transaction; 
 use App\Models\Wallet; 
+use Validator;
 
 use Log;
 
