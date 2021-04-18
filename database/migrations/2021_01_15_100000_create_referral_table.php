@@ -17,7 +17,7 @@ class CreateReferralTable extends Migration
             $table->bigIncrements('id');
             $table->integer('user_id');
             $table->integer('referral');
-            $table->float('profit')->default(0);
+            $table->double('profit', 15, 8)->default(0);
             $table->boolean('invested')->default(false);
             $table->timestamps();
         });

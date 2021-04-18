@@ -11,7 +11,7 @@ class ReferralController extends Controller
     public $successStatus = 200;
 
     public function referrals(Request $request){
-        $referals = Referral::where('user_id',$request->user->id)
+        $referals = Referral::where('referral',$request->user->id)
         ->get()
         ->map(function ($ref) {
             $ref->referral = $ref->user->name;

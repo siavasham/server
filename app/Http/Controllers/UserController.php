@@ -87,9 +87,15 @@ class UserController extends Controller
             }
             $token->delete();
             
-            $credentials = ['name'=>$token->name,'email'=>$token->email,'password'=>$token->password,'lang'=>$token->lang];
+            $credentials = ['name'=>strtolower($token->name),'email'=>strtolower($token->email),'password'=>$token->password,'lang'=>$token->lang];
             $user = User::updateOrCreate($credentials);   
-            $this->checkReferral($token);
+            if($token->referral != ''){
+                $ref = User::where('name',$token->referral) ->first();
+                if($user){
+                    $credentials = ['user_id'=>$user->id,'referral'=>$ref->id];
+                    Referral::updateOrCreate($credentials);   
+                }
+            }
             return  $this->makeLogin($user,$request);
              
         }
@@ -159,13 +165,5 @@ class UserController extends Controller
         $payload = $factory->make();
         return JWTAuth::encode($payload)->get();
     }
-    function checkReferral($ref){
-        if($ref->referral != ''){
-            $user = User::where('name',$ref->referral) ->first();
-            if($user){
-                $credentials = ['user_id'=>$user->id,'referral'=>$ref->id];
-                Referral::updateOrCreate($credentials);   
-            }
-        }
-    }
+
 }
