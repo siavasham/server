@@ -6,7 +6,7 @@
         <p class="my-4 text-muted">{{ __('home.header-desc') }}</p>
         <ul class="list-inline mb-0">
           <li class="list-inline-item mb-2 mb-lg-0">
-            <a class="btn btn-primary btn-lg px-4" href="{{ sub_asset('panel','/') }}">
+            <a class="btn btn-primary btn-lg px-4" href="https://panel.stronghold.live">
                 <i class="fas fa-handshake mr-3"></i>{{ __('home.join-us') }}
             </a>
           </li>
