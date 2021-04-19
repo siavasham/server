@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{{ __('home.title') }}</title>    
-    <meta name="description" content="">
+    <meta name="description" content="{{ __('home.description') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
     @if ($user->isRtl)
