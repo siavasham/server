@@ -38,5 +38,12 @@
       <script src="{{ asset('/js/bootstrap.bundle.min.js') }}"></script>
       <script src="{{ asset('/js/owl.carousel.min.js') }}"></script>
       <script src="{{ asset('/js/front.js') }}"></script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-CZDGH4JSW4"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-CZDGH4JSW4');
+      </script>
   </body>
 </html>

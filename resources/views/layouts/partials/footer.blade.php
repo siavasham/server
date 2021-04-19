@@ -29,7 +29,7 @@
         <div class="col-lg-5">
         <h2 class="h5 mb-4">{{ __('home.contact-us') }}</h2>
         <ul class="list-unstyled mr-4 mb-3">
-            <li class="mb-2 text-muted">ایران، تهران </li>
+            <!-- <li class="mb-2 text-muted">ایران، تهران </li> -->
             <!-- <li class="mb-2"><a class="footer-link" href="tel:619-851-4132">619-851-4132</a></li> -->
             <li class="mb-2"><a class="footer-link" href="mailto:support@stronghold.live">support@stronghold.live</a></li>
         </ul>
