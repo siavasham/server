@@ -29,6 +29,7 @@ $router->get('/','HomeController@index');
 //     return Artisan::call('db:seed',['--class' => 'DatabaseSeeder','--force' => true ]);
 // });
 
+
 $router->group(['prefix' => 'api'], function () use ($router) {
     $router->group(['middleware' => 'jwt'], function () use ($router) {
         $router->post('me', 'UserController@Me');

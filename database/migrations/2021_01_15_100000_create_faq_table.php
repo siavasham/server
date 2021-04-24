@@ -17,6 +17,7 @@ class CreateFaqTable extends Migration
             $table->bigIncrements('id');
             $table->string('question',250);
             $table->string('answer',250);
+            $table->enum('lang', ['fa', 'en','ar','tr'])->default('fa');
         });
     }
 

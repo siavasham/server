@@ -18,7 +18,18 @@ class HomeController extends Controller
 
     public function index(Request $request)
     {
-        $lang = $request->input('lang','fa');
+        if($request->has('lang')){
+            $lang = $request->input('lang','en');
+        }
+        else{
+            $userLocales = $request->getLanguages();
+            if(in_array('fa',$userLocales)){
+                $lang = 'fa';
+            }
+            else{
+              $lang = 'en';  
+            }
+        }
         app()->setlocale($lang);
         $user = (object) [ 'isRtl'=> in_array($lang,['fa','ar'])];
         $plans = Plan::where('status', true)->get();
