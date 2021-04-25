@@ -31,9 +31,9 @@ class HomeController extends Controller
             }
         }
         app()->setlocale($lang);
-        $user = (object) [ 'isRtl'=> in_array($lang,['fa','ar'])];
+        $user = (object) [ 'isRtl'=> in_array($lang,['fa','ar']),'lang'=>$lang];
         $plans = Plan::where('status', true)->get();
-        $faq = Faq::get();
+        $faq = Faq::where('lang', $lang)->get();
         return view('home',['user'=>$user,'plans'=>$plans,'faq'=>$faq]);
     }
 
