@@ -16,7 +16,7 @@ class HookController extends Controller
 
     public function get(Request $request){
         $userLocales = $request->getLanguages();
-        return response()->json($userLocales);
+        return response()->json($_SERVER);
     }
     public function index(Request $request){
         Log::info([json_encode($request->all()),date('Y-m-d H:i:s')]);
